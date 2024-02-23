@@ -156,7 +156,7 @@ require_once('./rubika/rubika.php');
 $account = new Rubika($auth, $private_key);
 
 $account->on_message(function (Message $update) use ($account) {
-    $pattern = '';
+    
     if ($update->is_group() && preg_match("/(@|rubika|http)/", $update->text())) {
         // پاک کردن پیام
         $account->deleteMessage($update->object_guid() , $update->message_id());
