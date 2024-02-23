@@ -521,7 +521,6 @@ class Rubika
                 });
 
                 $conn->on('close', function ($code, $reason) use ($timer, $callback) {
-                    print("REQU");
                     $this->on_message($callback);
                 });
             }, function (Exception $e) use ($callback) {
