@@ -78,7 +78,7 @@ $account->on_message(function (Message $update) use ($account) {
 
 ```
 
-## همگام سازی یک مثال دیگر:  :
+## همگام سازی یک مثال دیگر :
 ```php
 <?php 
 
