@@ -171,8 +171,6 @@ $account->on_message(function (Message $update) use ($account) {
 
 
 ``` 
-### نحوه دریافت Private key و  Auth  - 
 
-[Download](https://github.com/MohammadrezaFirouzi/RubikaApiPHP/raw/main/video/rubika.mp4)
 
 
