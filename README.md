@@ -176,4 +176,3 @@ $account->on_message(function (Message $update) use ($account) {
 [Download](https://github.com/MohammadrezaFirouzi/RubikaApiPHP/raw/main/video/rubika.mp4)
 
 
-"# RubikaPHP" 
