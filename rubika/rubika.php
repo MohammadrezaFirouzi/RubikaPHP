@@ -414,9 +414,11 @@ class Rubika
         ], "sendMessage");
     }
 
-    public function send_Video($chat_id, $file_name, $caption = null, $reply_to_message_id = null)
+    public function send_Video($chat_id, $file_name, $photo_tumb,$caption = null, $reply_to_message_id = null)
     {
         $up = self::upload($file_name);
+        $imageData = file_get_contents($photo_tumb);
+        $base64Image = base64_encode($imageData);
         return self::run([
             "object_guid" => $chat_id,
             "rnd" => rand(100000, 999999999),
@@ -427,7 +429,7 @@ class Rubika
                 "file_name" => $up['file_name'],
                 "size" => $up['size'],
                 "mime" => $up['mime'],
-                "thumb_inline" => $this->thumb_inline,
+                "thumb_inline" => $base64Image,
                 "width" => 512,
                 "height" => 512,
                 "time"=>"2",
