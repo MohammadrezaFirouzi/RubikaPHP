@@ -29,17 +29,19 @@ class Rubika
     public function __construct(string $auth, string $private_key)
     {
         $this->auth_dec = Crypto::decode_auth($auth);
-        $this->private_key = json_decode(base64_decode($private_key),true)['d'];
+        $this->private_key = json_decode(base64_decode($private_key), true)['d'];
         $this->crypto = new Crypto($this->auth_dec);
         $this->url = 'wss://nsocket7.iranlms.ir:80';
         $this->auth = $auth;
         $this->thumb_inline = "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";
     }
 
-    private function getState() {
+    private function getState()
+    {
         return time() - 150;
     }
-    private function run($input = [] , string $method){
+    private function run($input = [], string $method)
+    {
         $input = $this->crypto->encrypt([
             "method" => $method,
             "input" => $input,
@@ -55,18 +57,19 @@ class Rubika
 
         $response = Requests::sendRequest($data);
         $result = json_decode($this->crypto->decrypt($response['data_enc']), true);
-        return $result['data'];
-
+        if (isset($result['data'])) {
+            return $result['data'];
+        }
     }
 
     public function requestSendFile($file_name, $size, $mime)
     {
 
         return self::run([
-                "file_name" => $file_name,
-                "size" => $size,
-                "mime" => $mime,
-        ],"requestSendFile");
+            "file_name" => $file_name,
+            "size" => $size,
+            "mime" => $mime,
+        ], "requestSendFile");
     }
 
     public function upload($file)
@@ -135,30 +138,30 @@ class Rubika
     {
         return self::run([
             "start_id" => $start_id
-        ],"getContacts");
+        ], "getContacts");
     }
 
     public function getChats($start_id = null)
     {
         return self::run([
             "start_id" => $start_id
-        ],"getChats");
+        ], "getChats");
     }
 
-    public function getMessagesUpdates($object_guid , $state)
+    public function getMessagesUpdates($object_guid, $state)
     {
         return self::run([
             "object_guid" => $object_guid,
-            "state"=>$state,
-        ],"getMessagesUpdates");
+            "state" => $state,
+        ], "getMessagesUpdates");
     }
 
-    public function getMessagesInterval($object_guid , $middle_message_id)
+    public function getMessagesInterval($object_guid, $middle_message_id)
     {
         return self::run([
             "object_guid" => $object_guid,
-            "middle_message_id"=>$middle_message_id
-        ],"getMessagesInterval");
+            "middle_message_id" => $middle_message_id
+        ], "getMessagesInterval");
     }
 
     public function sendTextMessage($object_guid, $text, $metadata = null, $reply_to_message_id = null)
@@ -180,7 +183,7 @@ class Rubika
             "sort" => "FromMax",
             "filter_type" => "Media",
             "max_id" => $max_id
-        ],"getMessages");
+        ], "getMessages");
     }
 
     public function addContact($first_name, $last_name, $phone)
@@ -189,7 +192,7 @@ class Rubika
             "first_name" => $first_name,
             "last_name" => $last_name,
             "phone" => $phone,
-        ],"addAddressBook");
+        ], "addAddressBook");
     }
 
     public function addGroup($title, $member_guids)
@@ -218,7 +221,7 @@ class Rubika
         } elseif (self::startsWith($chat_id, "c0")) {
             $method = "getChannelInfo";
             $chat_type = "channel_guid";
-        }elseif(self::startsWith($chat_id, "u0")){
+        } elseif (self::startsWith($chat_id, "u0")) {
             $method = "getUserInfo";
             $chat_type = "user_guid";
         }
@@ -245,7 +248,7 @@ class Rubika
         ], $method);
     }
 
-    public function getMembers($chat_id, $search_text = null , $start_id = null)
+    public function getMembers($chat_id, $search_text = null, $start_id = null)
     {
 
         if (self::startsWith($chat_id, "g0")) {
@@ -257,7 +260,7 @@ class Rubika
         }
         return self::run([
             $chat_type => $chat_id,
-            "search_text"=>$search_text,
+            "search_text" => $search_text,
             "start_id" => $start_id,
 
         ], $method);
@@ -293,7 +296,7 @@ class Rubika
         return self::run([
             $chat_type => $chat_id,
             "member_guids" => $member_guid,
-        ],$method);
+        ], $method);
     }
 
     public function block($member_guid)
@@ -341,7 +344,7 @@ class Rubika
             "object_guid" => $chat_id,
             "message_ids" => $message_ids,
             "type" => "Global"
-        ],"deleteMessages");
+        ], "deleteMessages");
     }
 
     public function send_file($chat_id, $file_name, $caption = null, $metadata = null, $reply_to_message_id = null)
@@ -362,7 +365,7 @@ class Rubika
                 "access_hash_rec" => $up['access_hash_rec'],
             ],
             "text" => $caption,
-        ],"sendMessage");
+        ], "sendMessage");
     }
 
     public function send_Gif($chat_id, $file_name, $caption = null, $metadata = null, $reply_to_message_id = null)
@@ -414,7 +417,7 @@ class Rubika
         ], "sendMessage");
     }
 
-    public function send_Video($chat_id, $file_name, $photo_tumb,$caption = null, $reply_to_message_id = null)
+    public function send_Video($chat_id, $file_name, $photo_tumb, $caption = null, $reply_to_message_id = null)
     {
         $up = self::upload($file_name);
         $imageData = file_get_contents($photo_tumb);
@@ -432,7 +435,7 @@ class Rubika
                 "thumb_inline" => $base64Image,
                 "width" => 512,
                 "height" => 512,
-                "time"=>"2",
+                "time" => "2",
                 "access_hash_rec" => $up['access_hash_rec'],
             ],
             "text" => $caption,
@@ -456,12 +459,12 @@ class Rubika
                 "thumb_inline" => $this->thumb_inline,
                 "width" => 0,
                 "height" => 0,
-                "music_performer"=>"PHP Library",
-                "is_round"=>false,
-                "time"=>"2",
+                "music_performer" => "PHP Library",
+                "is_round" => false,
+                "time" => "2",
                 "access_hash_rec" => $up['access_hash_rec'],
             ],
-            "is_mute"=>false,
+            "is_mute" => false,
             "text" => $caption,
             "reply_to_message_id" => $reply_to_message_id
         ], "sendMessage");
@@ -480,7 +483,7 @@ class Rubika
                 "file_name" => $up['file_name'],
                 "size" => $up['size'],
                 "mime" => $up['mime'],
-                "time"=>"2",
+                "time" => "2",
                 "access_hash_rec" => $up['access_hash_rec'],
             ],
             "text" => $caption,
@@ -488,14 +491,15 @@ class Rubika
         ], "sendMessage");
     }
 
-    public function getChatUpdates(){
+    public function getChatUpdates()
+    {
         return self::run([
             "state" => $this->getState(),
         ], "getChatsUpdates");
     }
 
     public function on_message(callable $callback)
-    {   
+    {
         self::getChatUpdates();
         $loop = React\EventLoop\Loop::get();
         $connector = new Connector($loop);
@@ -513,11 +517,9 @@ class Rubika
 
                     $data = json_decode($msg, true);
                     if (isset($data['type'])) {
-                        $update = json_decode($this->crypto->decrypt($data['data_enc']),true);
-                        if (isset($update["chat_updates"])) {
-                            if (isset($update['message_updates'])) {
-                                $callback(new Message($update));
-                            }
+                        $update = json_decode($this->crypto->decrypt($data['data_enc']), true);
+                        if (isset($update['message_updates']) && isset($update['message_updates'][0]['action']) && $update['message_updates'][0]['action'] == "New") {
+                            $callback(new Message($update, $this));
                         }
                     }
                 });
@@ -531,8 +533,6 @@ class Rubika
 
         $loop->run();
     }
-
-    
 }
 
 
