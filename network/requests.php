@@ -8,32 +8,7 @@ class Requests
 
     public static function getApiUrl()
     {
-        $urls = [
-            "https://messengerg2c1.iranlms.ir",
-            "https://messengerg2c2.iranlms.ir",
-            "https://messengerg2c3.iranlms.ir",
-            "https://messengerg2c4.iranlms.ir",
-            "https://messengerg2c5.iranlms.ir",
-            "https://messengerg2c6.iranlms.ir",
-            "https://messengerg2c7.iranlms.ir",
-            "https://messengerg2c8.iranlms.ir",
-            "https://messengerg2c9.iranlms.ir",
-            "https://messengerg2c10.iranlms.ir",
-            "https://messengerg2c11.iranlms.ir",
-            "https://messengerg2c12.iranlms.ir",
-            "https://messengerg2c13.iranlms.ir",
-            "https://messengerg2c14.iranlms.ir",
-            "https://messengerg2c15.iranlms.ir",
-            "https://messengerg2c16.iranlms.ir",
-            "https://messengerg2c17.iranlms.ir",
-            "https://messengerg2c18.iranlms.ir",
-            "https://messengerg2c19.iranlms.ir",
-            "https://messengerg2c20.iranlms.ir",
-            "https://messengerg2c21.iranlms.ir",
-            "https://messengerg2c22.iranlms.ir",
-            "https://messengerg2c23.iranlms.ir"
-        ];
-        return $urls[array_rand($urls)];
+        return "https://messengerg2c" . rand(1, 23) . ".iranlms.ir";
     }
 
 
@@ -64,7 +39,7 @@ class Requests
         ]);
 
         $response = curl_exec($ch);
-        
+
         $error = curl_error($ch);
         curl_close($ch);
 
